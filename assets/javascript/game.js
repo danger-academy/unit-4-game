@@ -43,7 +43,7 @@ function initCharacters() {
     var andrew = new Character("Andrew", 160, 35, 20, "./assets/images/andrew.PNG");
     var jj = new Character("JJ", 150, 25, 20, "./assets/images/jj.PNG");
     var byron = new Character("Byron", 140, 20, 25, "./assets/images/byron.PNG");
-    var otom = new Character("Tom R", 130, 30, 20, "./assets/images/otom.PNG");
+    var otom = new Character("Tom R", 130, 30, 20, "./assets/images/otom.png");
     charArray.push(tom, andrew, jj, byron, otom);
 }
 
