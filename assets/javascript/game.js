@@ -26,24 +26,24 @@ Character.prototype.increaseAttack = function () {
 Character.prototype.attack = function (Obj) {
     Obj.developerPoints -= this.attackPower;
     $("#msg").html("You out-coded " +
-        Obj.name + "for " + this.attackPower + " developer points.");
+        Obj.name + " for " + this.attackPower + " developer points.");
     this.increaseAttack();
 };
 
 // Performs a counter attack
 Character.prototype.counterAttack = function (Obj) {
     Obj.developerPoints -= this.counterAttackPower;
-    $("#msg").append("<br>" + this.name + "  counter-coded you for " + this.counterAttackPower + " developer points.");
+    $("#msg").append("<br>" + this.name +  "  counter-coded you for " + this.counterAttackPower + " developer points.");
 };
 
 
 // Initialize all the characters
 function initCharacters() {
-    var tom = new Character("Tom", 180, 30, 25, "./assets/images/tom.PNG");
+    var tom = new Character("Tom", 170, 20, 25, "./assets/images/tom.PNG");
     var andrew = new Character("Andrew", 160, 35, 20, "./assets/images/andrew.PNG");
-    var jj = new Character("JJ", 150, 25, 10, "./assets/images/jj.PNG");
-    var byron = new Character("Byron", 140, 20, 15, "./assets/images/byron.PNG");
-    var otom = new Character("Tom R", 130, 20, 20, "./assets/images/otom.PNG" );
+    var jj = new Character("JJ", 150, 25, 20, "./assets/images/jj.PNG");
+    var byron = new Character("Byron", 140, 20, 25, "./assets/images/byron.PNG");
+    var otom = new Character("Tom R", 130, 30, 20, "./assets/images/otom.PNG" );
     charArray.push(tom, andrew, jj, byron, otom);
 }
 
@@ -80,7 +80,7 @@ function characterCards(divID) {
         $(divID + " img:last-child").attr("width", 150);
         $(divID + " img:last-child").addClass("img-thumbnail");
         $(divID + " div:last-child").append(charArray[i].name + "<br>");
-        $(divID + " div:last-child").append("Developer: " + charArray[i].developerPoints);
+        $(divID + " div:last-child").append("Developer Points: " + charArray[i].developerPoints);
         $(divID + " div:last-child").append();
 
     }
@@ -120,7 +120,7 @@ $(document).on("click", "img", function () {
                 defender = charArray[j]; // sets defender
                 charArray.splice(j, 1);
                 defenderSelected = true;
-                $("#msg").html("Click the button to attack!");
+                $("#msg").html("Click the button to throw down your gauntlet!");
             }
         }
         $("#defenderDiv").append(this); // appends the selected defender to the div 
@@ -142,7 +142,7 @@ $(document).on("click", "img", function () {
                 charArray.splice(i, 1);
                 playerSelected = true;
                 changeView();
-                $("#msg").html("Pick an opponent to totally out-code!");
+                $("#msg").html("Pick an opponent to thoroughly shame!");
             }
         }
         updatePics("#game", "#defendersLeftDiv");
@@ -165,12 +165,12 @@ $(document).on("click", "#attackBtn", function () {
             $("#defenderHealthDiv").html("DP: " + defender.developerPoints);
             if (!isAlive(defender)) {
                 $("#defenderHealthDiv").html("OUT-CODED!");
-                $("#playerHealthDiv").html("Opponent schooled!");
+                $("#playerHealthDiv").html("You schooled that opponent!");
                 $("#msg").html("Pick another opponent to drive to school on a bus of pain...");
             }
             if (!isAlive(player)) {
-                $("#playerHealthDiv").html("YOUR CODE IS GARBAGE!");
-                $("#msg").html("Try again...");
+                $("#playerHealthDiv").html("YOUR CODE IS GARBAGE!<br><br>now you must share a cubicle with Stinky Steve");
+                $("#msg").html("Try again, but maybe do better?");
                 $("#attackBtn").html("Restart Game");
                 $(document).on("click", "#attackBtn", function () { // restarts game
                     location.reload();
