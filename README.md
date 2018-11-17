@@ -8,3 +8,5 @@ Your objective is to prove your coding chops by brutalizing any and all who woul
 Didn't yet get the chance to include audio, would like a brief custom theme for each character, and some action sounds.
 
 Also wanted to set up custom backgrounds to load depending on the opponent selected, and on win/loss. 
+
+Gah, looks terrible on phone/small viewer, need to correct footer (not absolute?).
