@@ -24,6 +24,11 @@ body {
     background: black;
 }
 
+#game {
+    background: black;
+    color: black;
+}
+
 .ctr {
     margin: 0 auto !important;
     text-align: center;

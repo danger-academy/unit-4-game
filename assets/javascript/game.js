@@ -33,7 +33,7 @@ Character.prototype.attack = function (Obj) {
 // Performs a counter attack
 Character.prototype.counterAttack = function (Obj) {
     Obj.developerPoints -= this.counterAttackPower;
-    $("#msg").append("<br>" + this.name +  "  counter-coded you for " + this.counterAttackPower + " developer points.");
+    $("#msg").append("<br>" + this.name + "  counter-coded you for " + this.counterAttackPower + " developer points.");
 };
 
 
@@ -43,7 +43,7 @@ function initCharacters() {
     var andrew = new Character("Andrew", 160, 35, 20, "./assets/images/andrew.PNG");
     var jj = new Character("JJ", 150, 25, 20, "./assets/images/jj.PNG");
     var byron = new Character("Byron", 140, 20, 25, "./assets/images/byron.PNG");
-    var otom = new Character("Tom R", 130, 30, 20, "./assets/images/otom.PNG" );
+    var otom = new Character("Tom R", 130, 30, 20, "./assets/images/otom.PNG");
     charArray.push(tom, andrew, jj, byron, otom);
 }
 
@@ -98,12 +98,13 @@ function updatePics(fromDivID, toDivID) {
     }
 }
 
-// plays audio file (.mp3)
+/*
+//  plays audio file (.mp3)
 function playAudio() {
-    var audio = new Audio("./assets/media/themeSongSmall.mp3");
+    var audio = new Audio("./assets/media/theme.mp3");
     audio.play();
 }
-
+*/
 
 // Change the view from the first screen to the second screen
 function changeView() {
@@ -134,7 +135,9 @@ $(document).on("click", "img", function () {
         for (var i = 0; i < charArray.length; i++) {
             if (charArray[i].name == (this).id) {
                 player = charArray[i]; // sets current player
+                /* 
                 playAudio(); // starts theme song
+                */
                 $("body").css({
                     "background-image": "url('./assets/images/" + this.id[0] + ".jpg')"
                 }); // changes the background picture according to the user selection
@@ -165,11 +168,11 @@ $(document).on("click", "#attackBtn", function () {
             $("#defenderHealthDiv").html("DP: " + defender.developerPoints);
             if (!isAlive(defender)) {
                 $("#defenderHealthDiv").html("OUT-CODED!");
-                $("#playerHealthDiv").html("You schooled that opponent!");
+                $("#playerHealthDiv").html("<br>You schooled that opponent!");
                 $("#msg").html("Pick another opponent to drive to school on a bus of pain...");
             }
             if (!isAlive(player)) {
-                $("#playerHealthDiv").html("YOUR CODE IS GARBAGE!<br><br>now you must share a cubicle with Stinky Steve");
+                $("#playerHealthDiv").html("<br>YOUR CODE IS GARBAGE!<br><br>now you must share a cubicle with Stinky Steve");
                 $("#msg").html("Try again, but maybe do better?");
                 $("#attackBtn").html("Restart Game");
                 $(document).on("click", "#attackBtn", function () { // restarts game
