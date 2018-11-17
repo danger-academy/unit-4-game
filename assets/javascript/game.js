@@ -8,9 +8,9 @@ var defenderSelected = false; // flag to mark if we picked a defender
 
 
 // Character build
-function Character(name, hp, ap, counter, pic) {
+function Character(name, dp, ap, counter, pic) {
     this.name = name;
-    this.healthPoints = hp;
+    this.developerPoints = dp;
     this.attackPower = ap;
     this.counterAttackPower = counter;
     this.pic = pic;
@@ -24,7 +24,7 @@ Character.prototype.increaseAttack = function () {
 
 // Performs an attack
 Character.prototype.attack = function (Obj) {
-    Obj.healthPoints -= this.attackPower;
+    Obj.developerPoints -= this.attackPower;
     $("#msg").html("You out-coded " +
         Obj.name + "for " + this.attackPower + " developer points.");
     this.increaseAttack();
@@ -32,19 +32,19 @@ Character.prototype.attack = function (Obj) {
 
 // Performs a counter attack
 Character.prototype.counterAttack = function (Obj) {
-    Obj.healthPoints -= this.counterAttackPower;
-    $("#msg").append("<br>" + this.name + " counter-coded you for " + this.counterAttackPower + " developer points.");
+    Obj.developerPoints -= this.counterAttackPower;
+    $("#msg").append("<br>" + this.name + "  counter-coded you for " + this.counterAttackPower + " developer points.");
 };
 
 
 // Initialize all the characters
 function initCharacters() {
-    var tom = new Character("Tom", 200, 30, 25, "./assets/images/tom.PNG");
-    var andrew = new Character("Andrew", 160, 40, 20, "./assets/images/andrew.PNG");
+    var tom = new Character("Tom", 180, 30, 25, "./assets/images/tom.PNG");
+    var andrew = new Character("Andrew", 160, 35, 20, "./assets/images/andrew.PNG");
     var jj = new Character("JJ", 150, 25, 10, "./assets/images/jj.PNG");
-    var byron = new Character("Byron", 150, 20, 15, "./assets/images/byron.PNG");
-    var tomr = new Character("Tom R", 130, 20, 10, ".assets/images/otom.jpg" );
-    charArray.push(tom, andrew, jj, byron, tomr);
+    var byron = new Character("Byron", 140, 20, 15, "./assets/images/byron.PNG");
+    var otom = new Character("Tom R", 130, 20, 20, "./assets/images/otom.PNG" );
+    charArray.push(tom, andrew, jj, byron, otom);
 }
 
 // "Save" the original attack value
@@ -54,7 +54,7 @@ function setBaseAttack(Obj) {
 
 // Checks if character is alive
 function isAlive(Obj) {
-    if (Obj.healthPoints > 0) {
+    if (Obj.developerPoints > 0) {
         return true;
     }
     return false;
@@ -62,7 +62,7 @@ function isAlive(Obj) {
 
 // Checks if the player has won
 function isWinner() {
-    if (charArray.length == 0 && player.healthPoints > 0)
+    if (charArray.length == 0 && player.developerPoints > 0)
         return true;
     else return false;
 }
@@ -80,8 +80,8 @@ function characterCards(divID) {
         $(divID + " img:last-child").attr("width", 150);
         $(divID + " img:last-child").addClass("img-thumbnail");
         $(divID + " div:last-child").append(charArray[i].name + "<br>");
-        $(divID + " div:last-child").append("HP: " + charArray[i].healthPoints);
-        $(divID + " idv:last-child").append();
+        $(divID + " div:last-child").append("Developer: " + charArray[i].developerPoints);
+        $(divID + " div:last-child").append();
 
     }
 }
@@ -126,7 +126,7 @@ $(document).on("click", "img", function () {
         $("#defenderDiv").append(this); // appends the selected defender to the div 
         $("#defenderDiv").addClass("animated zoomInRight");
         $("#defenderDiv").append("<br>" + defender.name);
-        $("#defenderHealthDiv").append("HP: " + defender.healthPoints);
+        $("#defenderHealthDiv").append("dp: " + defender.developerPoints);
         $("#defenderHealthDiv").addClass("animated zoomInRight");
     }
     // Stores the character the user has clicked on in the player variable and removes it from charArray
@@ -149,7 +149,7 @@ $(document).on("click", "img", function () {
         $("#playerDiv").append(this); // appends the selected player to the div
         $("#playerDiv").addClass("animated zoomIn");
         $("#playerDiv").append(player.name);
-        $("#playerHealthDiv").append("HP: " + player.healthPoints);
+        $("#playerHealthDiv").append("dp: " + player.developerPoints);
         $("#playerHealthDiv").addClass("animated zoomIn");
     }
 
@@ -161,8 +161,8 @@ $(document).on("click", "#attackBtn", function () {
         if (isAlive(player) && isAlive(defender)) {
             player.attack(defender);
             defender.counterAttack(player);
-            $("#playerHealthDiv").html("DP: " + player.healthPoints);
-            $("#defenderHealthDiv").html("DP: " + defender.healthPoints);
+            $("#playerHealthDiv").html("DP: " + player.developerPoints);
+            $("#defenderHealthDiv").html("DP: " + defender.developerPoints);
             if (!isAlive(defender)) {
                 $("#defenderHealthDiv").html("OUT-CODED!");
                 $("#playerHealthDiv").html("Opponent schooled!");
