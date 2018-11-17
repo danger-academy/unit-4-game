@@ -71,7 +71,7 @@ body {
 }
 
 footer {
-    position: fixed;
+    /* position: fixed; */
     font-size: 0.8em;
     text-align: center;
     bottom: 0;
