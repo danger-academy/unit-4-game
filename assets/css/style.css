@@ -1,10 +1,10 @@
 body {
     color: silver !important;
     background-color: black;
-   /** background-image: url("../images/bg.jpg"); 
+    background-image: url("../images/code-bg01.jpg"); 
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat; **/
+    background-repeat: repeat;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,14 +18,14 @@ body {
     background: black;
 }
 
-#firstScreen {
+#firstScreen,
+#secondScreen {
     min-height: 100%;
     position: absolute;
     text-align: center;
     padding-top: 5%;
     color: rgb(90, 90, 90);
     background: black;
-   /* flex: 1 0 auto; */
 }
 
 #game {
@@ -40,15 +40,15 @@ body {
 }
 
 .bg-trans {
-    /** background: rgba(0, 0, 0, 0.527) !important; **/
-    background: black;
+    /*background: rgba(0, 0, 0, 0.527);
+    background: black; */
     width: 100%;
-    height: 100vh;
-    margin: 0 auto;
+    height: 100%;
+    margin: 0;
 }
 
 .paddingTop {
-    padding-top: 1%;
+    padding-top: 5px;
     background: black;
 }
 
@@ -74,8 +74,8 @@ body {
     background: black;
 }
 
-footer {
-    /* position: fixed; */
+.footer {
+    position: fixed;
     flex-shrink: 0;
     font-size: 0.8em;
     text-align: center;

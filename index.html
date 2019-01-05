@@ -9,27 +9,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/reset.css">
     <!--animate.css utlized for pre-coded animation features-->
-    <link rel="stylesheet" href="./assets/css/animate.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!--choose font and attempt favicon-->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="icon" type="image/ico" href="./assets/images/favicon.ico">
 </head>
 
 <body>
-
-    <!-- JavaScript - crossorigin necessary? more secure? further research... -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
-        crossorigin="anonymous "></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
-        crossorigin="anonymous "></script>
-    <script src="./assets/javascript/game.js "></script>
-    <!--attempt popper.js-->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
-        crossorigin="anonymous "></script> -->
-
     <!-- choose champion screen -->
     <!--animated entrance? YES, animate.css-->
     <div id="firstScreen" class="container-fluid animated zoomIn bounceOut">
@@ -58,7 +47,7 @@
         <div class="row text-center paddingTop">
             <div class="col-5">
                 Coding Champion:
-                <div class="container" style="width: 30%;">
+                <div class="container" style="width: 200px;">
                     <div id="playerDiv"></div>
                     <div id="playerHealthDiv"></div>
                 </div>
@@ -97,9 +86,19 @@
     </div>
 
     <!-- footer -->
-    <footer>
-        Copyright 2018 | Robert Tarkenton<br>(plus a bunch of lifted animation css, so... mature artists steal!)
+    <footer class="footer">
+        Copyright 2018 | Robert Tarkenton
     </footer>
+
+    <!-- JavaScript - crossorigin necessary? more secure? further research... -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+        crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+        crossorigin="anonymous "></script>
+    <script src="./assets/javascript/game.js "></script>
+    <!--attempt popper.js-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+        crossorigin="anonymous "></script> -->
 
 </body>
 
